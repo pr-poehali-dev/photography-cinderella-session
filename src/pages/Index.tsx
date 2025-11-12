@@ -50,38 +50,94 @@ const Index = () => {
         </header>
 
         <main className="container mx-auto px-4 pb-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {photos.map((photo, index) => (
-              <div
-                key={photo.id}
-                className="group relative overflow-hidden rounded-3xl shadow-2xl cursor-pointer transform transition-all duration-500 hover:scale-105 animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => setSelectedImage(photo.id)}
-              >
-                <div className="aspect-[3/4] relative">
-                  <img
-                    src={photo.url}
-                    alt={photo.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-purple-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-3xl font-bold text-white mb-2">{photo.title}</h3>
-                    <p className="text-blue-200 text-lg">{photo.description}</p>
-                  </div>
-
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="bg-white/20 backdrop-blur-md rounded-full p-3">
-                      <Icon name="Search" size={24} className="text-white" />
+          <section className="max-w-4xl mx-auto mb-20 animate-fade-in">
+            <div className="bg-white/60 backdrop-blur-md rounded-3xl p-10 md:p-16 shadow-xl border border-purple-100">
+              <div className="flex items-center justify-center mb-8">
+                <Icon name="Crown" size={40} className="text-yellow-400 sparkle" />
+              </div>
+              
+              <h2 className="text-5xl md:text-6xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">
+                О фотосессии
+              </h2>
+              
+              <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
+                <p className="text-center text-xl font-light">
+                  Окунитесь в мир классической сказки, где каждый кадр наполнен волшебством и элегантностью
+                </p>
+                
+                <div className="grid md:grid-cols-3 gap-6 mt-12">
+                  <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 hover:shadow-lg transition-shadow duration-300">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                      <Icon name="Wand2" size={28} className="text-blue-500" />
                     </div>
+                    <h3 className="text-2xl font-semibold mb-3 text-gray-800">Превращение</h3>
+                    <p className="text-gray-600">
+                      Магический момент, когда мечта становится реальностью
+                    </p>
+                  </div>
+                  
+                  <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 hover:shadow-lg transition-shadow duration-300">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
+                      <Icon name="Sparkles" size={28} className="text-purple-500" />
+                    </div>
+                    <h3 className="text-2xl font-semibold mb-3 text-gray-800">Роскошь</h3>
+                    <p className="text-gray-600">
+                      Королевские наряды и изысканные детали образа
+                    </p>
+                  </div>
+                  
+                  <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-pink-50 to-yellow-50 hover:shadow-lg transition-shadow duration-300">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-pink-100 rounded-full mb-4">
+                      <Icon name="Star" size={28} className="text-pink-500" />
+                    </div>
+                    <h3 className="text-2xl font-semibold mb-3 text-gray-800">Сказка</h3>
+                    <p className="text-gray-600">
+                      Атмосфера волшебства в каждом мгновении
+                    </p>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          </section>
 
-          <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <section className="max-w-6xl mx-auto mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-800 animate-fade-in">
+              Галерея
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {photos.map((photo, index) => (
+                <div
+                  key={photo.id}
+                  className="group relative overflow-hidden rounded-3xl shadow-2xl cursor-pointer transform transition-all duration-500 hover:scale-105 animate-scale-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                  onClick={() => setSelectedImage(photo.id)}
+                >
+                  <div className="aspect-[3/4] relative">
+                    <img
+                      src={photo.url}
+                      alt={photo.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-purple-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                      <h3 className="text-3xl font-bold text-white mb-2">{photo.title}</h3>
+                      <p className="text-blue-200 text-lg">{photo.description}</p>
+                    </div>
+
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="bg-white/20 backdrop-blur-md rounded-full p-3">
+                        <Icon name="Search" size={24} className="text-white" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <div className="text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <div className="inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm rounded-full px-8 py-4 shadow-lg">
               <Icon name="Camera" size={24} className="text-purple-500" />
               <p className="text-gray-700 text-lg">
